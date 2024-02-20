@@ -58,7 +58,7 @@ player = Player('Ivan',2)
 
 item1 = int(input('Select an item (1-paper, 2-scissors, 3-rock):'))
 item2 = randint(1,3)
-print(f'{player.select_attack_item(item1)} vs. {enemy.select_attack(item2)}')
+print(f'{player.select_attack_item(item1)} vs {enemy.select_attack(item2)}')
 
 player.degrees_lives()
 player.degrees_lives()
