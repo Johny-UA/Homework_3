@@ -1,4 +1,5 @@
 from random import randint
+
 class Player:
    items = {1:'paper', 2:'scissors', 3:'rock'}
    live_difficulty = {1:3,2:2,3:1}
@@ -18,7 +19,7 @@ class Player:
       self.lives -= 1
       if self.lives ==0:
          print('Game over')
-         return False
+         pass
 
    def achieve_scores(self, enemy_lives, scores_per_difficulty):
       if enemy_lives == 0:
