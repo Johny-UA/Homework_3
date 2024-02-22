@@ -64,12 +64,3 @@ player = Player(player_name,level_difficulty)
 
 # player.degrees_lives()
 # player.degrees_lives()
-
-<<<<<<< Updated upstream
-enemy.degrees_lives()
-enemy.degrees_lives()
-print(enemy.active_lives)
-=======
-# enemy.degrees_lives()
-# enemy.degrees_lives()
->>>>>>> Stashed changes
