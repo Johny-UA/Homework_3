@@ -1,5 +1,7 @@
-from models import player
-from models import enemy
+from models import Player
+from models import Enemy
+from score import Player_Record
+from score import Score_finder
 
 class Game:
 
@@ -28,13 +30,29 @@ class Game:
 
 
 
-
-game = Game(player, enemy)
-
-
-def play():
-   while game.player.lives != 0:
-      game.fight()
+def play(menu):
 
 
-play()
+   list = []
+   score = Score_finder(list)
+
+
+   if menu == 1:
+
+      player_name = input('Enter the name:')
+      level_difficulty = int(input('Input the difficulty (1 = ease, 2 = medium, 3 = hard):'))
+
+      enemy = Enemy(level_difficulty)
+      player = Player(player_name,level_difficulty)
+      game = Game(player, enemy)
+      record = Player_Record(game.player.name, game.player.score, game.player.difficulty)
+      while game.player.lives != 0:
+         game.fight()
+      if game.player.lives == 0:
+         score.write(record)
+         play(int(input('1 - play game, 2 - scores: ')))
+   elif menu == 2:
+      pass
+
+
+play(int(input('1 - play game, 2 - scores: ')))

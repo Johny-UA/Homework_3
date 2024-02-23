@@ -19,13 +19,13 @@ class Player:
 
    def degrees_lives(self):
       self.lives -= 1
-      if self.lives ==0:
+      if self.lives == 0:
          print('Game over')
          print(self.score)
 
 
    def achieve_scores(self):
-         self.score += level_difficulty
+         self.score += self.difficulty
 
 
 class Enemy:
@@ -54,10 +54,10 @@ class Enemy:
 
 
 
-player_name = input('Enter the name:')
-level_difficulty = int(input('Input the difficulty (1 = ease, 2 = medium, 3 = hard):'))
-enemy = Enemy(level_difficulty)
-player = Player(player_name,level_difficulty)
+# player_name = input('Enter the name:')
+# level_difficulty = int(input('Input the difficulty (1 = ease, 2 = medium, 3 = hard):'))
+# enemy = Enemy(level_difficulty)
+# player = Player(player_name,level_difficulty)
 
 
 # print(f'{player.select_attack_item(int(input("Select an item (1-paper, 2-scissors, 3-rock):")))} vs. {enemy.select_attack(randint(1,3))}')
