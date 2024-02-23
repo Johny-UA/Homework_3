@@ -59,10 +59,10 @@ def play(menu):
          player = Player(player_name,level_difficulty)
          game = Game(player, enemy)
 
-         record = Player_Record(game.player.name, game.player.score, difficulty_name[game.player.difficulty])
-
          while game.player.lives != 0:
             game.fight()
+
+         record = Player_Record(game.player.name, game.player.score, difficulty_name[game.player.difficulty])
 
          if game.player.lives == 0:
 
@@ -70,8 +70,6 @@ def play(menu):
             list1 = open('score_list.txt', 'a')
             score.write(record.prepare_score(), list1)
             list1.close()
-            list2 = open('score_list,txt', 'r')
-            print(list2)
             play(int(input('1 - play game, 2 - scores: ')))
 
       elif menu == 2:
