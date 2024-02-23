@@ -51,16 +51,3 @@ class Enemy:
          self.level += 1
 
 
-
-
-
-# player_name = input('Enter the name:')
-# level_difficulty = int(input('Input the difficulty (1 = ease, 2 = medium, 3 = hard):'))
-# enemy = Enemy(level_difficulty)
-# player = Player(player_name,level_difficulty)
-
-
-# print(f'{player.select_attack_item(int(input("Select an item (1-paper, 2-scissors, 3-rock):")))} vs. {enemy.select_attack(randint(1,3))}')
-
-# player.degrees_lives()
-# player.degrees_lives()

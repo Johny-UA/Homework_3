@@ -3,12 +3,13 @@ class Score_finder:
 
 
    def __init__(self,list):
-      self.record_list = list
+      self.record_list = list.read()
 
 
-   def write(self, other):
-      self.record_list.append(other)
-      list += self.record_list
+   def write(self, other, list):
+      self.record_list = self.record_list + other
+      list.write(other)
+
 
 
    def read_score(self):
@@ -29,19 +30,5 @@ class Player_Record:
 
 
    def prepare_score(self):
-      return [self.name,self.score,self.mode]
+      return f' {self.name} , {self.score} , {self.mode}; '
 
-
-
-
-# record = Game_Record('Ivan', 10, 'hard')
-# record1 = Game_Record('Ivan', 25, 'medium')
-# record2 = Game_Record('Anton', 50, 'ease')
-
-# score_list = Score_finder()
-
-# score_list.write(record.prepare_score())
-# score_list.write(record1.prepare_score())
-# score_list.write(record2.prepare_score())
-
-# score_list.read_score()
