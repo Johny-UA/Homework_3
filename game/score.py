@@ -57,10 +57,10 @@ class ScoreHandler:
             repeating += 1
 
 
-handler = ScoreHandler(SCORE_FILE)
+# handler = ScoreHandler(SCORE_FILE)
 
-new_record = PlayerRecord("McDonalds", "medium", 225)
-handler.game_record.add_record(new_record)
+# new_record = PlayerRecord("McDonalds", "medium", 225)
+# handler.game_record.add_record(new_record)
 
-handler.save()
-handler.display()
+# handler.save()
+# handler.display()

@@ -1,15 +1,73 @@
-# class Game:
-#    player: player
-#    enemy: enemy
-#    mode: mode
+from settings import *
+from models import Player, Enemy
 
-#    def init(self, player, enemy, mode):
+class Game:
+   player:  Player
+   enemy: Enemy
+   mode: str
 
-# class Game:
+   def __init__(self,player, mode):
+      self.player = player
+      self.mode = MODES[mode]
+      self.enemy = self.create_enemy()
 
-#    def __init__(self,player,enemy):
-#       self.player = player
-#       self.enemy = enemy
+
+   def create_enemy(self):
+      return Enemy(ENEMY_LIVES[self.mode])
+   
+
+   def fight (self):
+
+      player_select_attack = self.player.select_attack_item()
+      enemy_select_attack = self.enemy.select_attack()
+
+      print(f'{player_select_attack} vs. {enemy_select_attack}')
+      checking_attack_pairs = (ATTACK_PAIRS[(player_select_attack, enemy_select_attack)])
+      
+      self.handle_fight_result(checking_attack_pairs)
+
+
+
+
+
+   def handle_fight_result (self, checking_attack_pairs):
+      if checking_attack_pairs == WIN:
+         self.WIN()
+      elif checking_attack_pairs == DRAW:
+         self.DRAW()
+      elif checking_attack_pairs == LOSE:
+         self.LOSE()
+
+
+   def DRAW (self):
+      print('Draw')
+
+   def LOSE (self):
+      print('Lose')
+      self.player.degrees_lives()
+
+   def WIN (self):
+      print('Win')
+      self.enemy.degrees_lives()
+      self.player.achieve_scores()
+
+
+
+   def play (self):
+      while True:
+         print(f'{self.player.name}: {self.player.lives} |-| {self.enemy.active_lives} :Enemy (level {self.enemy.level})')
+         self.fight()
+
+
+
+mode = input('Input the difficulty ( 1=ease, 2=medium, 3=hard): ')
+name = input('Input the name: ')
+player = Player(name, mode)
+play = Game(player, mode)
+play.play()
+
+
+
 
 #    def fight(self):
 #       try:

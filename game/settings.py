@@ -1,3 +1,5 @@
+from random import randint
+
 MODE_HARD = 'hard'
 MODE_MEDIUM = 'medium'
 MODE_EASE = 'ease'
@@ -9,21 +11,22 @@ MODES = {
 }
 
 LIVES = {
-   'hard': 1,
-   'medium' : 3,
-   'ease' : 5,
-}
-
-ENEMY_LIVES = {
-   'hard' : 4,
-   'medium': 3,
-   'ease' : 2
+   MODE_HARD: 2,
+   MODE_MEDIUM: 3,
+   MODE_EASE: 4,
 }
 
 POINTS_FOR_FIGHT = 2
-POINTS_FOR_KILL = 4
 
 SCORE_FILE ='score_list.txt'
+
+ENEMY_LIVES = {
+   MODE_HARD : 4,
+   MODE_MEDIUM: 3,
+   MODE_EASE : 2
+}
+
+ENEMY_ATTACK = randint(1,3)
 
 PAPER = 'paper'
 SCISSORS = 'scissors'

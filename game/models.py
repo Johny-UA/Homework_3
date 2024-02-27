@@ -1,9 +1,8 @@
-from random import randint
 from settings import *
 from exceptions import GameOver,EnemyDown
 
 class Player:
-   difficulty: int
+   mode: str
    name: str
    score: int = 0
    lives: int
@@ -20,10 +19,11 @@ class Player:
    def degrees_lives(self) -> None:
       self.lives -= 1
       if self.lives == 0:
-         GameOver(self,'hello')
+         GameOver(self)
 
    def achieve_scores(self) -> None:
-         self.score += self.mode
+         self.score += POINTS_FOR_FIGHT
+         
 
 
 
@@ -36,25 +36,31 @@ class Enemy:
 
    def __init__(self,lives):
       self._lives = lives
-      self.active_lives = self._lives
+      self.active_lives = lives
       self.level = 1
 
    def select_attack(self) -> None:
-      return SELECT_ATTACK[str(randint(1,3))]
+      return SELECT_ATTACK[str(ENEMY_ATTACK)]
 
    def degrees_lives(self) -> None:
       self.active_lives -= 1
       if self.active_lives == 0:
          EnemyDown(self)
+         self.level += 1
 
 
 
 
 # player = Player('Ivan', '3')
+
 # enemy = Enemy(ENEMY_LIVES[MODES['1']])
+
 # print(enemy.select_attack())
 # print(player.select_attack_item())
 # player.degrees_lives()
+
+
+
 # print(enemy.active_lives)
 # enemy.degrees_lives()
 # enemy.degrees_lives()
