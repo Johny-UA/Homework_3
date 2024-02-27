@@ -1,1 +1,4 @@
- hello , 0 , medium;  jhsjd , 0 , medium;  johhny , 0 , medium;  johhny , 8 , medium;  Vanya , 6 , medium; 
+John,hard,4
+John,ease,8
+Johny,medium,12
+McDonalds,medium,225
