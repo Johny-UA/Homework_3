@@ -1,4 +1,4 @@
-from settings import *
+from .settings import REPEATING_PRINT
 
 class PlayerRecord:
     def __init__(self, name, mode, score):
@@ -55,12 +55,3 @@ class ScoreHandler:
          while repeating != records_length:
             print(self.game_record.records[repeating])
             repeating += 1
-
-
-# handler = ScoreHandler(SCORE_FILE)
-
-# new_record = PlayerRecord("McDonalds", "medium", 225)
-# handler.game_record.add_record(new_record)
-
-# handler.save()
-# handler.display()

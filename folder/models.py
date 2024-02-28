@@ -1,5 +1,5 @@
-from settings import *
-from exceptions import GameOver,EnemyDown
+from .settings import MODES, LIVES, SELECT_ATTACK, MODE_EASE, MODE_MEDIUM, MODE_HARD, POINTS_FOR_FIGHT_EASE, POINTS_FOR_FIGHT_MEDIUM, POINTS_FOR_FIGHT_HARD,ENEMY_ATTACK
+from .exceptions import GameOver,EnemyDown
 
 class Player:
    mode: str
@@ -19,10 +19,16 @@ class Player:
    def degrees_lives(self) -> None:
       self.lives -= 1
       if self.lives == 0:
-         print(f"{self.name} score is {self.score.score} points")
+         raise GameOver()
 
    def achieve_scores(self) -> None:
-         self.score += POINTS_FOR_FIGHT
+         if self.mode == MODE_EASE:
+            self.score += POINTS_FOR_FIGHT_EASE
+         elif self.mode == MODE_MEDIUM:
+            self.score += POINTS_FOR_FIGHT_MEDIUM
+         else:
+            self.score += POINTS_FOR_FIGHT_HARD
+
 
 
 
@@ -35,7 +41,7 @@ class Enemy:
 
    def __init__(self,lives):
       self._lives = lives
-      self.active_lives = lives
+      self.active_lives = self._lives
       self.level = 1
 
    def select_attack(self) -> None:
@@ -44,23 +50,4 @@ class Enemy:
    def degrees_lives(self) -> None:
       self.active_lives -= 1
       if self.active_lives == 0:
-         self.active_lives = self._lives + self.level
-         self.level += 1
-
-
-
-
-# player = Player('Ivan', '3')
-
-# enemy = Enemy(ENEMY_LIVES[MODES['1']])
-
-# print(enemy.select_attack())
-# print(player.select_attack_item())
-# player.degrees_lives()
-
-
-
-# print(enemy.active_lives)
-# enemy.degrees_lives()
-# enemy.degrees_lives()
-# print(enemy.active_lives)
+         raise EnemyDown()

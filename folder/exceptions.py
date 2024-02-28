@@ -1,4 +1,4 @@
-class GameOver(Exception): 
+class GameOver(Exception):
    pass
 
 class EnemyDown(Exception):
