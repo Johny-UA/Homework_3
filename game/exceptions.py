@@ -1,5 +1,5 @@
-def GameOver (player):
-   print(f"your score is {player.score} points")
+class GameOver(Exception): 
+   pass
 
-def EnemyDown(enemy):
-   enemy.active_lives = enemy._lives + enemy.level
+class EnemyDown(Exception):
+   pass

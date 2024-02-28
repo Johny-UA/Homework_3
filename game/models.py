@@ -19,11 +19,10 @@ class Player:
    def degrees_lives(self) -> None:
       self.lives -= 1
       if self.lives == 0:
-         GameOver(self)
+         print(f"{self.name} score is {self.score.score} points")
 
    def achieve_scores(self) -> None:
          self.score += POINTS_FOR_FIGHT
-         
 
 
 
@@ -45,7 +44,7 @@ class Enemy:
    def degrees_lives(self) -> None:
       self.active_lives -= 1
       if self.active_lives == 0:
-         EnemyDown(self)
+         self.active_lives = self._lives + self.level
          self.level += 1
 
 
