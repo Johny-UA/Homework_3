@@ -1,7 +1,0 @@
-John,hard,4
-John,ease,8
-Johny,medium,12
-McDonalds,medium,225
-johny,hard,0
-bababule,medium,2
-johny,medium,10
